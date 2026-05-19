@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #FAF8F3;
+  --foreground: #1F2937;
+
+  --card: #FFFFFF;
+  --card-foreground: #1F2937;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #1F2937;
+
+  --muted: #F4F1EA;
+  --muted-foreground: #6B7280;
+
+  --border: #E7E1D8;
+  --input: #E7E1D8;
+
+  --primary: #5D8A67;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #EAF3EC;
+  --secondary-foreground: #24412D;
+
+  --accent: #AFC5B5;
+  --accent-foreground: #17301F;
+
+  --success: #4F8A5B;
+  --warning: #D49A3A;
+  --destructive: #D65C5C;
+  --destructive-foreground: #FFFFFF;
+
+  --ring: #5D8A67;
+}
+
+.dark {
+  --background: #111714;
+  --foreground: #F3F4F6;
+
+  --card: #18201C;
+  --card-foreground: #F3F4F6;
+
+  --popover: #18201C;
+  --popover-foreground: #F3F4F6;
+
+  --muted: #1E2823;
+  --muted-foreground: #A1A8A3;
+
+  --border: #2A342E;
+  --input: #2A342E;
+
+  --primary: #78A783;
+  --primary-foreground: #0F1512;
+
+  --secondary: #223028;
+  --secondary-foreground: #DDE7E0;
+
+  --accent: #355040;
+  --accent-foreground: #F5F8F6;
+
+  --success: #6EA878;
+  --warning: #E3B65C;
+  --destructive: #E57A7A;
+  --destructive-foreground: #0F1512;
+
+  --ring: #78A783;
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes check-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out both;
+}
+
+.animate-check-pop {
+  animation: check-pop 200ms ease-out both;
 }
