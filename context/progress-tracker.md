@@ -33,8 +33,8 @@ Update this file whenever the current phase, active feature, or implementation s
   - `.env.local` — added `NEXT_PUBLIC_CLERK_SIGN_IN_URL`, `NEXT_PUBLIC_CLERK_SIGN_UP_URL`, `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL`, `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL`
   - `app/layout.tsx` — `ClerkProvider` wraps root layout with CSS-variable appearance (no hardcoded colors)
   - `app/page.tsx` — server component that redirects authenticated users → `/dashboard`, unauthenticated → `/sign-in`
-  - `app/(auth)/sign-in/page.tsx` — replaced placeholder form with Clerk `<SignIn />`
-  - `app/(auth)/sign-up/page.tsx` — replaced placeholder form with Clerk `<SignUp />`
+  - `app/(auth)/sign-in/[[...rest]]/page.tsx` — replaced placeholder form with Clerk `<SignIn />`
+  - `app/(auth)/sign-up/[[...rest]]/page.tsx` — replaced placeholder form with Clerk `<SignUp />`
   - `components/layout/nav.tsx` — `UserButton` added to sidebar bottom and mobile nav right slot
 
 ## In Progress
