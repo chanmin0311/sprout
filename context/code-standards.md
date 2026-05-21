@@ -33,10 +33,10 @@
 
 - Default to React Server Components.
 - Add `"use client"` only when the component requires:
-    - Browser APIs
-    - React hooks such as `useState` or `useEffect`
-    - Event handlers
-    - Optimistic updates
+  - Browser APIs
+  - React hooks such as `useState` or `useEffect`
+  - Event handlers
+  - Optimistic updates
 
 - Fetch data on the server whenever possible.
 - Keep route handlers focused on a single responsibility.
@@ -64,10 +64,10 @@
 - Do not use raw Tailwind palette classes such as `gray-*`, `slate-*`, or `green-*`.
 - Do not hardcode hex values in components.
 - Follow the radius scale defined in `ui-context.md`:
-    - `rounded-xl` for small controls
-    - `rounded-2xl` for buttons and form fields
-    - `rounded-3xl` for cards and panels
-    - `rounded-[2rem]` for modals and drawers
+  - `rounded-xl` for small controls
+  - `rounded-2xl` for buttons and form fields
+  - `rounded-3xl` for cards and panels
+  - `rounded-[2rem]` for modals and drawers
 
 - Preserve the calm, spacious visual style.
 - Use consistent spacing and typography tokens.
@@ -114,9 +114,9 @@
 
 ```ts
 interface ActionResult<T> {
-    success: boolean;
-    data?: T;
-    error?: string;
+  success: boolean;
+  data?: T;
+  error?: string;
 }
 ```
 

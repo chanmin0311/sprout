@@ -1,14 +1,14 @@
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import Link from "next/link";
-import { Sprout, CheckCircle2, Flame, Calendar, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { Sprout, CheckCircle2, Flame, Calendar, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default async function LandingPage() {
   const { userId } = await auth();
-  if (userId) redirect("/dashboard");
+  if (userId) redirect('/dashboard');
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -41,8 +41,7 @@ export default async function LandingPage() {
 
         <div className="max-w-2xl space-y-5">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight tracking-tight">
-            Build habits that{" "}
-            <span className="text-primary">actually stick.</span>
+            Build habits that <span className="text-primary">actually stick.</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
             Sprout helps you stay consistent without the pressure. Simple daily check-ins, gentle

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
-import { HabitForm } from "@/components/features/habits/habit-form";
-import type { Habit, HabitFrequencyType } from "@/types";
+} from '@/components/ui/dialog';
+import { HabitForm } from '@/components/features/habits/habit-form';
+import type { Habit, HabitFrequencyType } from '@/types';
 
 interface CreateHabitDialogProps {
   open: boolean;
@@ -42,9 +42,7 @@ export function CreateHabitDialog({ open, onOpenChange, onCreated }: CreateHabit
       <DialogContent>
         <DialogHeader>
           <DialogTitle>New habit</DialogTitle>
-          <DialogDescription>
-            Start small — one habit at a time.
-          </DialogDescription>
+          <DialogDescription>Start small — one habit at a time.</DialogDescription>
         </DialogHeader>
         <HabitForm
           onSubmit={handleSubmit}

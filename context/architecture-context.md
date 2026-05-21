@@ -48,19 +48,19 @@
 
 - Belongs to one user.
 - Stores:
-    - Name
-    - Description
-    - Frequency Type (`daily`, `weekly`)
-    - Weekly Target Count
-    - Active Status
-    - Created and updated timestamps
+  - Name
+  - Description
+  - Frequency Type (`daily`, `weekly`)
+  - Weekly Target Count
+  - Active Status
+  - Created and updated timestamps
 
 #### Habit Record
 
 - Belongs to one habit.
 - Stores:
-    - Date
-    - Status (`not_started`, `in_progress`, `completed`)
+  - Date
+  - Status (`not_started`, `in_progress`, `completed`)
 
 ---
 

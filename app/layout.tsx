@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+import './globals.css';
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Sprout — Calm Habit Tracking",
+  title: 'Sprout — Calm Habit Tracking',
   description:
-    "Build lasting habits with calm daily check-ins, streak visualization, and gentle progress tracking.",
+    'Build lasting habits with calm daily check-ins, streak visualization, and gentle progress tracking.',
 };
 
 export default function RootLayout({
@@ -30,14 +30,14 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         variables: {
-          colorPrimary: "var(--primary)",
-          colorBackground: "var(--card)",
-          colorForeground: "var(--foreground)",
-          colorMutedForeground: "var(--muted-foreground)",
-          colorInput: "var(--card)",
-          colorInputForeground: "var(--card-foreground)",
-          colorNeutral: "var(--foreground)",
-          colorDanger: "var(--destructive)",
+          colorPrimary: 'var(--primary)',
+          colorBackground: 'var(--card)',
+          colorForeground: 'var(--foreground)',
+          colorMutedForeground: 'var(--muted-foreground)',
+          colorInput: 'var(--card)',
+          colorInputForeground: 'var(--card-foreground)',
+          colorNeutral: 'var(--foreground)',
+          colorDanger: 'var(--destructive)',
         },
       }}
     >
@@ -46,9 +46,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable}`}
         suppressHydrationWarning
       >
-        <body className="min-h-screen flex flex-col antialiased">
-          {children}
-        </body>
+        <body className="min-h-screen flex flex-col antialiased">{children}</body>
       </html>
     </ClerkProvider>
   );

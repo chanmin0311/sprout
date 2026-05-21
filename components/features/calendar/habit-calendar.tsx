@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { CalendarCell } from "@/components/features/calendar/calendar-cell";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import type { CalendarDay } from "@/types";
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { CalendarCell } from '@/components/features/calendar/calendar-cell';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
+import type { CalendarDay } from '@/types';
 
 interface HabitCalendarProps {
   calendarDays: CalendarDay[];
@@ -17,10 +17,20 @@ interface HabitCalendarProps {
   className?: string;
 }
 
-const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 export function HabitCalendar({
@@ -32,13 +42,13 @@ export function HabitCalendar({
   className,
 }: HabitCalendarProps) {
   const completedCount = calendarDays.filter(
-    (d) => d.isCurrentMonth && d.status === "completed"
+    (d) => d.isCurrentMonth && d.status === 'completed',
   ).length;
 
   const currentMonthDays = calendarDays.filter((d) => d.isCurrentMonth).length;
 
   return (
-    <div className={cn("flex flex-col gap-4", className)}>
+    <div className={cn('flex flex-col gap-4', className)}>
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">

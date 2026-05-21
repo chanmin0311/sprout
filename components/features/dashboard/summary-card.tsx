@@ -1,7 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils';
+import type { LucideIcon } from 'lucide-react';
 
 interface SummaryCardProps {
   label: string;
@@ -21,20 +21,18 @@ export function SummaryCard({
   className,
 }: SummaryCardProps) {
   return (
-    <Card className={cn("", className)}>
+    <Card className={cn('', className)}>
       <CardContent className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="flex flex-col gap-1">
             <span className="text-sm text-muted-foreground font-medium">{label}</span>
             <span className="text-3xl font-bold text-foreground leading-none">{value}</span>
-            {trend && (
-              <span className="text-xs text-muted-foreground mt-1">{trend}</span>
-            )}
+            {trend && <span className="text-xs text-muted-foreground mt-1">{trend}</span>}
           </div>
           <div
             className={cn(
-              "flex size-10 shrink-0 items-center justify-center rounded-2xl bg-secondary",
-              iconClassName
+              'flex size-10 shrink-0 items-center justify-center rounded-2xl bg-secondary',
+              iconClassName,
             )}
           >
             <Icon className="size-5 text-primary" />

@@ -1,6 +1,6 @@
-export type HabitFrequencyType = "daily" | "weekly";
+export type HabitFrequencyType = 'daily' | 'weekly';
 
-export type HabitStatus = "not_started" | "in_progress" | "completed";
+export type HabitStatus = 'not_started' | 'in_progress' | 'completed';
 
 export interface User {
   id: string;

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -8,10 +8,10 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { HabitForm } from "@/components/features/habits/habit-form";
-import type { Habit, HabitFrequencyType } from "@/types";
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { HabitForm } from '@/components/features/habits/habit-form';
+import type { Habit, HabitFrequencyType } from '@/types';
 
 interface EditHabitDialogProps {
   habit: Habit | null;
@@ -84,7 +84,7 @@ export function EditHabitDialog({
         <HabitForm
           defaultValues={{
             name: habit.name,
-            description: habit.description ?? "",
+            description: habit.description ?? '',
             frequencyType: habit.frequencyType,
             weeklyTargetCount: habit.weeklyTargetCount ?? 3,
           }}
@@ -101,12 +101,7 @@ export function EditHabitDialog({
                 Delete &quot;{habit.name}&quot;? This cannot be undone.
               </p>
               <div className="flex gap-2">
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={handleDelete}
-                  loading={deleting}
-                >
+                <Button variant="destructive" size="sm" onClick={handleDelete} loading={deleting}>
                   Yes, delete
                 </Button>
                 <Button

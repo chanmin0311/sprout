@@ -1,5 +1,5 @@
-import { SignIn } from "@clerk/nextjs";
-import { Sprout } from "lucide-react";
+import { SignIn } from '@clerk/nextjs';
+import { Sprout } from 'lucide-react';
 
 export default function SignInPage() {
   return (

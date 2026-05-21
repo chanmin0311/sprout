@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { FormField } from "@/components/ui/form-field";
+import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { FormField } from '@/components/ui/form-field';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import type { Habit, HabitFrequencyType } from "@/types";
+} from '@/components/ui/select';
+import type { Habit, HabitFrequencyType } from '@/types';
 
 interface HabitFormValues {
   name: string;
@@ -33,23 +33,23 @@ export function HabitForm({
   defaultValues,
   onSubmit,
   onCancel,
-  submitLabel = "Save",
+  submitLabel = 'Save',
   loading,
 }: HabitFormProps) {
   const [values, setValues] = useState<HabitFormValues>({
-    name: defaultValues?.name ?? "",
-    description: defaultValues?.description ?? "",
-    frequencyType: defaultValues?.frequencyType ?? "daily",
+    name: defaultValues?.name ?? '',
+    description: defaultValues?.description ?? '',
+    frequencyType: defaultValues?.frequencyType ?? 'daily',
     weeklyTargetCount: defaultValues?.weeklyTargetCount ?? 3,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof HabitFormValues, string>>>({});
 
   function validate(): boolean {
     const next: typeof errors = {};
-    if (!values.name.trim()) next.name = "Habit name is required.";
-    if (values.frequencyType === "weekly") {
+    if (!values.name.trim()) next.name = 'Habit name is required.';
+    if (values.frequencyType === 'weekly') {
       if (values.weeklyTargetCount < 1 || values.weeklyTargetCount > 7) {
-        next.weeklyTargetCount = "Must be between 1 and 7.";
+        next.weeklyTargetCount = 'Must be between 1 and 7.';
       }
     }
     setErrors(next);
@@ -108,7 +108,7 @@ export function HabitForm({
         </Select>
       </FormField>
 
-      {values.frequencyType === "weekly" && (
+      {values.frequencyType === 'weekly' && (
         <FormField
           label="Times per week"
           htmlFor="habit-target"
