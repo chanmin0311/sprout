@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { HabitCalendar } from "@/components/features/calendar/habit-calendar";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { CalendarDay, HabitStatus } from "@/types";
+import { useState } from 'react';
+import { HabitCalendar } from '@/components/features/calendar/habit-calendar';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { CalendarDay, HabitStatus } from '@/types';
 
 function buildMockCalendar(year: number, month: number): CalendarDay[] {
   const today = new Date();
@@ -19,7 +19,13 @@ function buildMockCalendar(year: number, month: number): CalendarDay[] {
   }
 
   // Current month
-  const statuses: HabitStatus[] = ["completed", "completed", "not_started", "in_progress", "completed"];
+  const statuses: HabitStatus[] = [
+    'completed',
+    'completed',
+    'not_started',
+    'in_progress',
+    'completed',
+  ];
   for (let d = 1; d <= daysInMonth; d++) {
     const date = new Date(year, month, d);
     const isToday =
@@ -29,7 +35,7 @@ function buildMockCalendar(year: number, month: number): CalendarDay[] {
     const isPast = date < today && !isToday;
     days.push({
       date,
-      status: isPast ? statuses[d % statuses.length] : isToday ? "completed" : null,
+      status: isPast ? statuses[d % statuses.length] : isToday ? 'completed' : null,
       isToday,
       isCurrentMonth: true,
     });
@@ -54,13 +60,17 @@ export default function CalendarPage() {
   const calendarDays = buildMockCalendar(year, month);
 
   function prevMonth() {
-    if (month === 0) { setYear((y) => y - 1); setMonth(11); }
-    else setMonth((m) => m - 1);
+    if (month === 0) {
+      setYear((y) => y - 1);
+      setMonth(11);
+    } else setMonth((m) => m - 1);
   }
 
   function nextMonth() {
-    if (month === 11) { setYear((y) => y + 1); setMonth(0); }
-    else setMonth((m) => m + 1);
+    if (month === 11) {
+      setYear((y) => y + 1);
+      setMonth(0);
+    } else setMonth((m) => m + 1);
   }
 
   return (

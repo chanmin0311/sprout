@@ -1,5 +1,5 @@
-import { SignUp } from "@clerk/nextjs";
-import { Sprout } from "lucide-react";
+import { SignUp } from '@clerk/nextjs';
+import { Sprout } from 'lucide-react';
 
 export default function SignUpPage() {
   return (

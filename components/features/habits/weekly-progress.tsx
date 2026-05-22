@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import type { WeeklyProgress as WeeklyProgressType } from "@/types";
+import { cn } from '@/lib/utils';
+import type { WeeklyProgress as WeeklyProgressType } from '@/types';
 
 interface WeeklyProgressProps {
   progress: WeeklyProgressType;
@@ -12,18 +12,18 @@ export function WeeklyProgress({ progress, className }: WeeklyProgressProps) {
   const done = completed >= target;
 
   return (
-    <div className={cn("flex flex-col gap-1.5", className)}>
+    <div className={cn('flex flex-col gap-1.5', className)}>
       <div className="flex items-center justify-between text-xs">
         <span className="text-muted-foreground">This week</span>
-        <span className={cn("font-medium", done ? "text-success" : "text-foreground")}>
+        <span className={cn('font-medium', done ? 'text-success' : 'text-foreground')}>
           {completed} / {target}
         </span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
         <div
           className={cn(
-            "h-full rounded-full transition-all duration-300",
-            done ? "bg-success" : "bg-primary"
+            'h-full rounded-full transition-all duration-300',
+            done ? 'bg-success' : 'bg-primary',
           )}
           style={{ width: `${pct}%` }}
         />

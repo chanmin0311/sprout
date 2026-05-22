@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Flame, Edit, MoreHorizontal, Trash2 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { CheckInControl } from "@/components/features/habits/check-in-control";
-import { WeeklyProgress } from "@/components/features/habits/weekly-progress";
-import { cn } from "@/lib/utils";
-import type { Habit, HabitStatus, WeeklyProgress as WeeklyProgressType } from "@/types";
+import Link from 'next/link';
+import { Flame, Edit, MoreHorizontal, Trash2 } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { CheckInControl } from '@/components/features/habits/check-in-control';
+import { WeeklyProgress } from '@/components/features/habits/weekly-progress';
+import { cn } from '@/lib/utils';
+import type { Habit, HabitStatus, WeeklyProgress as WeeklyProgressType } from '@/types';
 
 interface HabitCardProps {
   habit: Habit;
@@ -19,14 +19,14 @@ interface HabitCardProps {
 }
 
 const frequencyLabel = (habit: Habit) => {
-  if (habit.frequencyType === "daily") return "Daily";
+  if (habit.frequencyType === 'daily') return 'Daily';
   return `${habit.weeklyTargetCount}× per week`;
 };
 
 const statusBorder = {
-  not_started: "border-border",
-  in_progress: "border-accent",
-  completed: "border-success",
+  not_started: 'border-border',
+  in_progress: 'border-accent',
+  completed: 'border-success',
 };
 
 export function HabitCard({
@@ -38,10 +38,7 @@ export function HabitCard({
 }: HabitCardProps) {
   return (
     <Card
-      className={cn(
-        "transition-all duration-200 hover:shadow-md",
-        statusBorder[habit.todayStatus]
-      )}
+      className={cn('transition-all duration-200 hover:shadow-md', statusBorder[habit.todayStatus])}
     >
       <CardContent className="p-5">
         <div className="flex items-start gap-4">
@@ -108,16 +105,12 @@ export function HabitCard({
                 </span>
               )}
 
-              {habit.todayStatus === "completed" && (
-                <Badge variant="success">Done today</Badge>
-              )}
-              {habit.todayStatus === "in_progress" && (
-                <Badge variant="warning">In progress</Badge>
-              )}
+              {habit.todayStatus === 'completed' && <Badge variant="success">Done today</Badge>}
+              {habit.todayStatus === 'in_progress' && <Badge variant="warning">In progress</Badge>}
             </div>
 
             {/* Weekly progress for weekly habits */}
-            {habit.frequencyType === "weekly" && weeklyProgress && (
+            {habit.frequencyType === 'weekly' && weeklyProgress && (
               <div className="mt-3">
                 <WeeklyProgress progress={weeklyProgress} />
               </div>

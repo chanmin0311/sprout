@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Feature 02: Authentication — Complete
+- Feature 03: Data Layer (Prisma) — Complete
 
 ## Current Goal
 
-- Feature 03: Data Layer (database, server actions, replace mock data)
+- Feature 04: Server Actions and replace mock data with real queries
 
 ## Completed
 
@@ -27,6 +27,13 @@ Update this file whenever the current phase, active feature, or implementation s
   - All pages use placeholder/mock data until the data layer is added
   - TypeScript strict mode — zero type errors
 
+- **Feature 03: Data Layer (Prisma)**
+  - `prisma/models/habit.prisma` — `HabitFrequencyType` and `HabitStatus` enums; `Habit` and `HabitRecord` models with cascade delete, unique constraint on `[habitId, date]`, and ownership/date indexes
+  - `lib/prisma.ts` — cached singleton; branches on `DATABASE_URL`: `prisma+postgres://` → `accelerateUrl` constructor option; otherwise `@prisma/adapter-pg` with `pg`
+  - Migration `20260521032112_init_habits` applied to Prisma Postgres
+  - Installed `@prisma/extension-accelerate`
+  - `npx tsc --noEmit` and `npm run build` pass with zero errors
+
 - **Feature 02: Authentication**
   - Installed `@clerk/ui`; `@clerk/nextjs` was already present
   - `proxy.ts` at root — protected-first `clerkMiddleware`; public routes read from `NEXT_PUBLIC_CLERK_SIGN_IN_URL` / `NEXT_PUBLIC_CLERK_SIGN_UP_URL` env vars
@@ -43,7 +50,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Next Up
 
-- Feature 03: Data Layer — database setup, server actions, replace all mock data with real queries
+- Feature 04: Server Actions — implement CRUD server actions and replace all mock data with real queries
 
 ## Open Questions
 
@@ -57,6 +64,8 @@ Update this file whenever the current phase, active feature, or implementation s
 - All pages currently use inline mock data. These will be replaced by server components + data fetching in the data layer feature.
 - Clerk route protection uses `proxy.ts` (Next.js 16+ middleware filename), not `middleware.ts`.
 - Clerk appearance is set once on `ClerkProvider` in the root layout using CSS custom properties — individual Clerk components inherit it automatically.
+- Prisma v7 requires `adapter` or `accelerateUrl` in the `PrismaClient` constructor — there is no zero-argument constructor. `lib/prisma.ts` branches on the URL prefix to pick the right option.
+- Prisma CLI migrations use the direct `postgres://` URL (from `.env.local`), not the `prisma+postgres://` proxy URL in `.env`. Pass `DATABASE_URL=` inline or export it before running `prisma migrate dev`.
 
 ## Session Notes
 

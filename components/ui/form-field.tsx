@@ -1,6 +1,6 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
 
 interface FormFieldProps {
   label: string;
@@ -22,7 +22,7 @@ function FormField({
   children,
 }: FormFieldProps) {
   return (
-    <div className={cn("flex flex-col gap-1.5", className)}>
+    <div className={cn('flex flex-col gap-1.5', className)}>
       <Label htmlFor={htmlFor} error={!!error}>
         {label}
         {required && <span className="text-destructive ml-0.5">*</span>}

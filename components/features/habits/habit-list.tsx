@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Plus } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { HabitCard, HabitCardSkeleton } from "@/components/features/habits/habit-card";
-import { HabitEmptyState } from "@/components/features/habits/empty-state";
-import { CreateHabitDialog } from "@/components/features/habits/create-habit-dialog";
-import { EditHabitDialog } from "@/components/features/habits/edit-habit-dialog";
-import type { Habit, HabitStatus, WeeklyProgress } from "@/types";
+import { useState } from 'react';
+import { Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { HabitCard, HabitCardSkeleton } from '@/components/features/habits/habit-card';
+import { HabitEmptyState } from '@/components/features/habits/empty-state';
+import { CreateHabitDialog } from '@/components/features/habits/create-habit-dialog';
+import { EditHabitDialog } from '@/components/features/habits/edit-habit-dialog';
+import type { Habit, HabitStatus, WeeklyProgress } from '@/types';
 
 interface HabitListProps {
   habits: Habit[];
@@ -68,16 +68,14 @@ export function HabitList({
         </div>
       )}
 
-      <CreateHabitDialog
-        open={createOpen}
-        onOpenChange={setCreateOpen}
-        onCreated={onCreated}
-      />
+      <CreateHabitDialog open={createOpen} onOpenChange={setCreateOpen} onCreated={onCreated} />
 
       <EditHabitDialog
         habit={editingHabit}
         open={!!editingHabit}
-        onOpenChange={(open) => { if (!open) setEditingHabit(null); }}
+        onOpenChange={(open) => {
+          if (!open) setEditingHabit(null);
+        }}
         onUpdated={onUpdated}
         onDeleted={onDeleted}
       />

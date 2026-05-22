@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme inline {
   --color-background: var(--background);
@@ -34,69 +34,69 @@
 }
 
 :root {
-  --background: #FAF8F3;
-  --foreground: #1F2937;
+  --background: #faf8f3;
+  --foreground: #1f2937;
 
-  --card: #FFFFFF;
-  --card-foreground: #1F2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
 
-  --popover: #FFFFFF;
-  --popover-foreground: #1F2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
 
-  --muted: #F4F1EA;
-  --muted-foreground: #6B7280;
+  --muted: #f4f1ea;
+  --muted-foreground: #6b7280;
 
-  --border: #E7E1D8;
-  --input: #E7E1D8;
+  --border: #e7e1d8;
+  --input: #e7e1d8;
 
-  --primary: #5D8A67;
-  --primary-foreground: #FFFFFF;
+  --primary: #5d8a67;
+  --primary-foreground: #ffffff;
 
-  --secondary: #EAF3EC;
-  --secondary-foreground: #24412D;
+  --secondary: #eaf3ec;
+  --secondary-foreground: #24412d;
 
-  --accent: #AFC5B5;
-  --accent-foreground: #17301F;
+  --accent: #afc5b5;
+  --accent-foreground: #17301f;
 
-  --success: #4F8A5B;
-  --warning: #D49A3A;
-  --destructive: #D65C5C;
-  --destructive-foreground: #FFFFFF;
+  --success: #4f8a5b;
+  --warning: #d49a3a;
+  --destructive: #d65c5c;
+  --destructive-foreground: #ffffff;
 
-  --ring: #5D8A67;
+  --ring: #5d8a67;
 }
 
 .dark {
   --background: #111714;
-  --foreground: #F3F4F6;
+  --foreground: #f3f4f6;
 
-  --card: #18201C;
-  --card-foreground: #F3F4F6;
+  --card: #18201c;
+  --card-foreground: #f3f4f6;
 
-  --popover: #18201C;
-  --popover-foreground: #F3F4F6;
+  --popover: #18201c;
+  --popover-foreground: #f3f4f6;
 
-  --muted: #1E2823;
-  --muted-foreground: #A1A8A3;
+  --muted: #1e2823;
+  --muted-foreground: #a1a8a3;
 
-  --border: #2A342E;
-  --input: #2A342E;
+  --border: #2a342e;
+  --input: #2a342e;
 
-  --primary: #78A783;
-  --primary-foreground: #0F1512;
+  --primary: #78a783;
+  --primary-foreground: #0f1512;
 
   --secondary: #223028;
-  --secondary-foreground: #DDE7E0;
+  --secondary-foreground: #dde7e0;
 
   --accent: #355040;
-  --accent-foreground: #F5F8F6;
+  --accent-foreground: #f5f8f6;
 
-  --success: #6EA878;
-  --warning: #E3B65C;
-  --destructive: #E57A7A;
-  --destructive-foreground: #0F1512;
+  --success: #6ea878;
+  --warning: #e3b65c;
+  --destructive: #e57a7a;
+  --destructive-foreground: #0f1512;
 
-  --ring: #78A783;
+  --ring: #78a783;
 }
 
 * {
@@ -113,14 +113,26 @@ body {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes check-pop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.12); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .animate-fade-in {

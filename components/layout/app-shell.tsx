@@ -1,4 +1,4 @@
-import { Nav, MobileNav } from "@/components/layout/nav";
+import { Nav, MobileNav } from '@/components/layout/nav';
 
 interface AppShellProps {
   children: React.ReactNode;

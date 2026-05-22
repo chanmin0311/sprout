@@ -1,5 +1,5 @@
-import { Sprout } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Sprout } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface EmptyStateProps {
   onCreate?: () => void;

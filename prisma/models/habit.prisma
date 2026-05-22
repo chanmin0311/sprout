@@ -1,0 +1,40 @@
+enum HabitFrequencyType {
+  DAILY
+  WEEKLY
+}
+
+enum HabitStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model Habit {
+  id                String             @id @default(cuid())
+  ownerId           String
+  name              String
+  description       String?
+  frequencyType     HabitFrequencyType
+  weeklyTargetCount Int?
+  isActive          Boolean            @default(true)
+  records           HabitRecord[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  @@index([ownerId])
+  @@index([ownerId, createdAt])
+}
+
+model HabitRecord {
+  id        String      @id @default(cuid())
+  habitId   String
+  habit     Habit       @relation(fields: [habitId], references: [id], onDelete: Cascade)
+  date      DateTime    @db.Date
+  status    HabitStatus
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@unique([habitId, date])
+  @@index([habitId])
+  @@index([habitId, date])
+}

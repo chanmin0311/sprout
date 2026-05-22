@@ -1,10 +1,10 @@
-import { Settings, User, Bell, Moon, LogOut } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { FormField } from "@/components/ui/form-field";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+import { Settings, User, Bell, Moon, LogOut } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { FormField } from '@/components/ui/form-field';
+import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 export default function SettingsPage() {
   return (
@@ -74,7 +74,9 @@ export default function SettingsPage() {
             <Bell className="size-5 text-primary" />
             <CardTitle>
               Notifications
-              <Badge variant="muted" className="ml-2 text-xs">Coming soon</Badge>
+              <Badge variant="muted" className="ml-2 text-xs">
+                Coming soon
+              </Badge>
             </CardTitle>
           </div>
           <CardDescription>
@@ -105,12 +107,12 @@ function ThemeOption({ label, active }: { label: string; active?: boolean }) {
     <button
       type="button"
       className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-        active ? "border-primary text-primary" : "border-border text-muted-foreground hover:border-accent"
+        active
+          ? 'border-primary text-primary'
+          : 'border-border text-muted-foreground hover:border-accent'
       }`}
     >
-      <div
-        className={`size-10 rounded-xl ${active ? "bg-secondary" : "bg-muted"}`}
-      />
+      <div className={`size-10 rounded-xl ${active ? 'bg-secondary' : 'bg-muted'}`} />
       {label}
     </button>
   );

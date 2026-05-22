@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { use } from "react";
-import Link from "next/link";
-import { ArrowLeft, Flame, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CheckInControl } from "@/components/features/habits/check-in-control";
-import { WeeklyProgress } from "@/components/features/habits/weekly-progress";
-import { HabitCalendar } from "@/components/features/calendar/habit-calendar";
-import type { Habit, HabitStatus, CalendarDay } from "@/types";
+import { useState } from 'react';
+import { use } from 'react';
+import Link from 'next/link';
+import { ArrowLeft, Flame, Calendar } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { CheckInControl } from '@/components/features/habits/check-in-control';
+import { WeeklyProgress } from '@/components/features/habits/weekly-progress';
+import { HabitCalendar } from '@/components/features/calendar/habit-calendar';
+import type { Habit, HabitStatus, CalendarDay } from '@/types';
 
 // Placeholder data — replaced by server fetch in data layer feature
 const MOCK_HABIT: Habit = {
-  id: "1",
-  userId: "user_1",
-  name: "Morning walk",
-  description: "15 minutes outside before coffee. Rain or shine.",
-  frequencyType: "daily",
+  id: '1',
+  userId: 'user_1',
+  name: 'Morning walk',
+  description: '15 minutes outside before coffee. Rain or shine.',
+  frequencyType: 'daily',
   weeklyTargetCount: null,
   isActive: true,
   createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
   updatedAt: new Date(),
   currentStreak: 7,
-  todayStatus: "completed",
+  todayStatus: 'completed',
 };
 
 function buildCalendar(year: number, month: number): CalendarDay[] {
@@ -34,17 +34,28 @@ function buildCalendar(year: number, month: number): CalendarDay[] {
   const days: CalendarDay[] = [];
 
   for (let i = 0; i < firstDay; i++) {
-    days.push({ date: new Date(year, month, -firstDay + i + 1), status: null, isToday: false, isCurrentMonth: false });
+    days.push({
+      date: new Date(year, month, -firstDay + i + 1),
+      status: null,
+      isToday: false,
+      isCurrentMonth: false,
+    });
   }
   for (let d = 1; d <= daysInMonth; d++) {
     const date = new Date(year, month, d);
     const isToday = date.toDateString() === today.toDateString();
     const isPast = date < today && !isToday;
-    days.push({ date, status: isPast ? "completed" : isToday ? "completed" : null, isToday, isCurrentMonth: true });
+    days.push({
+      date,
+      status: isPast ? 'completed' : isToday ? 'completed' : null,
+      isToday,
+      isCurrentMonth: true,
+    });
   }
   while (days.length % 7 !== 0) {
     const last = days[days.length - 1].date;
-    const next = new Date(last); next.setDate(last.getDate() + 1);
+    const next = new Date(last);
+    next.setDate(last.getDate() + 1);
     days.push({ date: next, status: null, isToday: false, isCurrentMonth: false });
   }
   return days;
@@ -60,10 +71,16 @@ export default function HabitDetailPage({ params }: { params: Promise<{ id: stri
   const calendarDays = buildCalendar(year, month);
 
   function prevMonth() {
-    if (month === 0) { setYear((y) => y - 1); setMonth(11); } else setMonth((m) => m - 1);
+    if (month === 0) {
+      setYear((y) => y - 1);
+      setMonth(11);
+    } else setMonth((m) => m - 1);
   }
   function nextMonth() {
-    if (month === 11) { setYear((y) => y + 1); setMonth(0); } else setMonth((m) => m + 1);
+    if (month === 11) {
+      setYear((y) => y + 1);
+      setMonth(0);
+    } else setMonth((m) => m + 1);
   }
 
   return (
@@ -80,14 +97,10 @@ export default function HabitDetailPage({ params }: { params: Promise<{ id: stri
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold text-foreground">{habit.name}</h1>
-          {habit.description && (
-            <p className="text-muted-foreground">{habit.description}</p>
-          )}
+          {habit.description && <p className="text-muted-foreground">{habit.description}</p>}
           <div className="flex items-center gap-3 flex-wrap">
             <Badge variant="muted">
-              {habit.frequencyType === "daily"
-                ? "Daily"
-                : `${habit.weeklyTargetCount}× per week`}
+              {habit.frequencyType === 'daily' ? 'Daily' : `${habit.weeklyTargetCount}× per week`}
             </Badge>
             {habit.currentStreak > 0 && (
               <span className="flex items-center gap-1 text-sm font-medium text-warning">
@@ -116,11 +129,11 @@ export default function HabitDetailPage({ params }: { params: Promise<{ id: stri
         <StatCard
           label="Today's status"
           value={
-            habit.todayStatus === "completed"
-              ? "Done"
-              : habit.todayStatus === "in_progress"
-              ? "In progress"
-              : "Not started"
+            habit.todayStatus === 'completed'
+              ? 'Done'
+              : habit.todayStatus === 'in_progress'
+                ? 'In progress'
+                : 'Not started'
           }
         />
       </div>

@@ -41,16 +41,16 @@ The core purpose of Sprout is to make habit formation visible and motivating by 
 - Create, edit, and delete habits.
 - Configure habit name, description, and tracking frequency.
 - Supported frequency types:
-    - Daily
-    - Weekly N Times
+  - Daily
+  - Weekly N Times
 
 ### Daily Check-In
 
 - Mark today's progress for each habit.
 - Each habit has three possible states:
-    - Not Started
-    - In Progress
-    - Completed
+  - Not Started
+  - In Progress
+  - Completed
 
 ### Streak Tracking
 
@@ -62,9 +62,9 @@ The core purpose of Sprout is to make habit formation visible and motivating by 
 
 - Display habit completion history by month.
 - Visualize:
-    - Daily completion status
-    - Current streak
-    - Habit activity patterns
+  - Daily completion status
+  - Current streak
+  - Habit activity patterns
 
 ### Dashboard
 
