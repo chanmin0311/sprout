@@ -5,7 +5,10 @@ import { PrismaPg } from '@prisma/adapter-pg';
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined };
 
 function createClient(): PrismaClient {
-  const url = process.env.DATABASE_URL ?? '';
+  const url = process.env.DATABASE_URL;
+  if (!url) {
+    throw new Error('DATABASE_URL is required');
+  }
 
   if (url.startsWith('prisma+postgres://')) {
     return new PrismaClient({ accelerateUrl: url });
