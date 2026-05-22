@@ -36,5 +36,4 @@ model HabitRecord {
 
   @@unique([habitId, date])
   @@index([habitId])
-  @@index([habitId, date])
 }
